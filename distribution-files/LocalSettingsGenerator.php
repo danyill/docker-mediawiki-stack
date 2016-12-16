@@ -448,6 +448,20 @@ $wgVirtualRestConfig['modules']['restbase'] = array(
 
 $wgVisualEditorRestbaseURL = 'http://restbase:7231/wiki/v1/page/html/';
 
+
+sable reading by anonymous users
+$wgGroupPermissions['*']['read'] = false;
+
+# But allow them to access the login page or else there will be no way to log in!
+# (You also might want to add access to "Main Page", "Help:Contents", etc.)
+$wgWhitelistRead = array ("Special:Userlogin");
+
+# Disable anonymous editing
+$wgGroupPermissions['*']['edit'] = false;
+
+# Prevent new user registrations except by sysops
+$wgGroupPermissions['*']['createaccount'] = false;
+
 $wgSessionsInObjectCache = true;
 
 EOD;
